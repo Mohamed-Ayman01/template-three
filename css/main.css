@@ -1,9 +1,277 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --main-clr: #2196f3;
+  --gray-100: #fafafa;
+  --gray-200: #ececec;
+  --gray-300: #777;
+  --transition-time: .3s;
+}
+
 body {
   font-family: 'Cairo', sans-serif;
 }
+
+ul {
+  list-style: none
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ! Start Header */
+header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+header a {
+  font-size: 1.1rem;
+  position: relative;
+  transition: background-color var(--transition-time);
+}
+
+header a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+header nav {
+  box-shadow: 10px 0 14px rgba(0,0,0, 6%);
+  background-color: white;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  nav .container {
+    gap: 1rem;
+    padding-top: 1rem;
+    flex-direction: column;
+  }
+}
+
+nav .title {
+  font-size: 1.6rem;
+  color: var(--main-clr);
+  font-weight: bold;
+}
+
+nav .links {
+  display: flex;
+}
+
+nav .links li > a {
+  padding: 1.6rem 2rem;
+}
+
+@media (max-width: 700px) {
+  nav .links li > a {
+    padding: 1rem ;
+    font-size: 12px;
+  }
+}
+
+nav .links li > a::before {
+  width: 0%;
+  height: 4px;
+  background-color: var(--main-clr);
+  transition: width var(--transition-time);
+}
+
+nav .links li > a:hover {
+  background-color: var(--gray-100)
+}
+
+nav .links li > a:hover::before {
+  width: 100%;
+}
+
+nav .links .mega-menu-li {
+  position: relative;
+}
+
+nav .links .mega-menu-li:hover ~ .mega-menu,
+.mega-menu:hover {
+  display: grid;
+}
+
+nav .mega-menu {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  color: var(--main-clr);
+  background-color: white;
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 3px solid var(--main-clr); 
+}
+
+nav .mega-menu img {
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  nav .mega-menu {
+    grid-template-columns: 1fr 1fr;
+    width: 100vw;
+  }
+
+  nav .mega-menu img {
+    display: none;
+  }
+}
+
+@media (max-width: 503px) {
+  nav .mega-menu {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0;
+  }
+}
+
+nav .mega-menu .column {
+
+} 
+
+nav .mega-menu .column a {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: bold;
+}
+
+nav .mega-menu .column a:not(:last-of-type) {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+@media (max-width: 503px) {
+  nav .mega-menu .column a {
+    border-bottom: 1px solid var(--gray-200);
+  }
+}
+
+nav .mega-menu .column a::before {
+  height: 100%;
+  width: 0%;
+  z-index: 0;
+  background-color: var(--gray-100);
+  transition: width var(--transition-time);
+}
+
+nav .mega-menu .column a:hover::before {
+  width: 100%;
+}
+
+nav .mega-menu .column a > * {
+  z-index: 2;
+}
+
+header main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  header main {
+    text-align: center;
+  }
+}
+header main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: var(--gray-200);
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 95%, 0 0);
+}
+
+main .text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  line-height: 1.6;
+}
+
+main .text h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+main .text p {
+  font-size: 1.5rem;
+  color: var(--gray-300);
+}
+
+main img {
+  width: 600px;
+}
+
+@media (max-width: 992px) {
+  main img {
+    display: none;
+  }
+}
+
+.pointer {
+  padding-top: 4rem;
+  position: relative;
+}
+
+.pointer i {
+  font-size: 2.1rem;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pointer-anim .9s ease 0s infinite alternate;
+  color: var(--main-clr);
+}
+
+@keyframes pointer-anim {
+  
+  0%, 40%, 60%, 80%, 100% {
+    top: 0px;
+  }
+
+  20% {
+    top: -15px;
+  }
+
+}
+/* ! End Header */
