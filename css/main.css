@@ -16,6 +16,7 @@ html {
   --gray-200: #ececec;
   --gray-300: #777;
   --transition-time: .3s;
+  --card-box-shadow: 0 0 20px 0px rgba(0,0,0, 15%);
 }
 
 body {
@@ -30,6 +31,10 @@ a {
   display: block;
   text-decoration: none;
   color: inherit;
+}
+
+img {
+  display: block;
 }
 
 button {
@@ -300,7 +305,6 @@ main img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2.5rem;
-
 }
 
 .articles .container .card {
@@ -308,7 +312,7 @@ main img {
   flex-direction: column;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 0 20px 0px rgba(0,0,0, 15%);
+  box-shadow: var(--card-box-shadow);
   transition: 
     box-shadow var(--transition-time),
     transform var(--transition-time);
@@ -373,4 +377,69 @@ main img {
   }
 }
 /* ! End Articles */
+
+/* ! Start Gallery */
+.gallery {
+  background-color: var(--gray-200);
+  position: relative;
+}
+
+.gallery .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.gallery .container .box {
+  padding: 1rem;
+  background-color: white;
+  box-shadow: var(--card-box-shadow);
+}
+
+.gallery .container .box .img-cont {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery .container .box .img-cont img {
+  max-width: 100%;
+  transition: var(--transition-time);
+}
+
+
+.gallery .container .box:hover img {
+  transform: rotate(6deg) scale(1.15);
+  overflow: hidden;
+}
+
+.gallery .container .box .img-cont::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  opacity: 30%;
+  z-index: 10;
+}
+
+.gallery .container .box:hover .img-cont::before {
+  animation: gallery-img-anim .7s 0s forwards;
+}
+
+@keyframes gallery-img-anim {
+  0%,
+  40% {
+    opacity: 30%;
+  }
+  100% {
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+  }
+}
+/* ! End Gallery */
 
