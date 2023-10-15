@@ -27,3 +27,74 @@
 .cap-text {
   text-transform: capitalize;
 }
+
+.sect {
+  padding: 5rem 0;
+  min-height: 500px;
+}
+
+.sect-heading {
+  padding: 1rem 2rem;
+  border: 2px solid black;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  position: relative;
+  /* transition: .2s ;
+  transition-delay: .8s; */
+}
+
+.sect-heading::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  width: 13px;
+  height: 13px;
+  background: var(--main-clr);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: .8s;
+  z-index: -1;
+}
+
+.sect-heading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  width: 14px;
+  height: 13px;
+  background: var(--main-clr);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: .8s;
+  z-index: -1;
+}
+
+/* ! USE ANIMATION INSTEAD OF TRANSITION */
+.sect-heading:hover {
+  transition: .2s ;
+  transition-delay: .8s;
+  color: white;
+  border-color: white;
+}
+
+.sect-heading:hover::before {
+  top: 0;
+  left: -1px;
+  transform: translateY(0);
+  width: 55%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.sect-heading:hover::after {
+  top: 0;
+  right: -1px;
+  transform: translateY(0);
+  width: 55%;
+  height: 100%;
+  border-radius: 0;
+}

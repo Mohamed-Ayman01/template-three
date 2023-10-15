@@ -32,6 +32,12 @@ a {
   color: inherit;
 }
 
+button {
+  cursor: pointer;
+  background-color: white;
+  border: none
+}
+
 /* ! Start Header */
 header {
   min-height: 100vh;
@@ -132,6 +138,7 @@ nav .mega-menu {
   background-color: white;
   border-top: 1px solid var(--gray-200);
   border-bottom: 3px solid var(--main-clr); 
+  z-index: 10;
 }
 
 nav .mega-menu img {
@@ -240,6 +247,18 @@ main .text p {
 
 main img {
   width: 600px;
+  animation: header-img-anim 2s ease-in-out 0s infinite alternate;
+  filter: drop-shadow(10px 10px 10px rgb(124, 124, 124));
+}
+
+@keyframes header-img-anim {
+  0% {
+    transform: translateY(0px);
+  }
+  
+  100% {
+    transform: translateY(-40px);
+  }
 }
 
 @media (max-width: 992px) {
@@ -275,3 +294,83 @@ main img {
 
 }
 /* ! End Header */
+
+/* ! Start Articles */
+.articles .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2.5rem;
+
+}
+
+.articles .container .card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 20px 0px rgba(0,0,0, 15%);
+  transition: 
+    box-shadow var(--transition-time),
+    transform var(--transition-time);
+}
+
+.articles .container .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px 5px rgba(0,0,0, 18%);
+}
+
+.articles .container .card img {
+  max-width: 100%;
+}
+
+.articles .container .card :is(.text-box, button) {
+  padding: 1.2rem 1rem;
+}
+
+.articles .container .card .text-box {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.articles .container .card .text-box h3 {
+  margin-bottom: 1rem;
+}
+
+.articles .container .card .text-box p {
+  color: var(--gray-300);
+  line-height: 1.5;
+}
+
+.articles .container .card button {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--gray-200);
+  text-transform: capitalize;
+  color: var(--main-clr);
+  font-weight: bold;
+  transition: var(--transition-time);
+}
+
+.articles .container .card button:hover {
+  background-color: var(--gray-100);
+}
+
+.articles .container .card button i {
+  transform: translateX(-5px)
+}
+
+.articles .container .card:hover button i {
+  animation: card-i-anim .5s ease-in-out 0s infinite alternate;
+}
+
+@keyframes card-i-anim {
+  0% {
+    transform: translateX(-5px)
+  }
+  
+  100% {
+    transform: translateX(5px)
+  }
+}
+/* ! End Articles */
+
