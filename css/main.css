@@ -15,7 +15,10 @@ html {
   --gray-100: #fafafa;
   --gray-200: #ececec;
   --gray-300: #777;
+  --green: #009688;
+  --red: #f44036;
   --transition-time: .3s;
+  --grid-box-gap: 2.5rem;
   --card-box-shadow: 0 0 20px 0px rgba(0,0,0, 15%);
 }
 
@@ -169,10 +172,6 @@ nav .mega-menu img {
   }
 }
 
-nav .mega-menu .column {
-
-} 
-
 nav .mega-menu .column a {
   padding: 1rem;
   display: flex;
@@ -304,7 +303,7 @@ main img {
 .articles .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2.5rem;
+  gap: var(--grid-box-gap);
 }
 
 .articles .container .card {
@@ -387,7 +386,7 @@ main img {
 .gallery .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  gap: var(--grid-box-gap);
 }
 
 .gallery .container .box {
@@ -405,7 +404,6 @@ main img {
   max-width: 100%;
   transition: var(--transition-time);
 }
-
 
 .gallery .container .box:hover img {
   transform: rotate(6deg) scale(1.15);
@@ -443,3 +441,165 @@ main img {
 }
 /* ! End Gallery */
 
+/* ! Start Features */
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--grid-box-gap);
+}
+
+.features .container .box {
+  display: flex;
+  flex-direction: column;
+  height: 750px;
+  border: 1px solid #dbdbdb;
+}
+
+.features .container .box .bg-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.features .container .box .bg-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .6;
+  z-index: 1;
+}
+
+.features .container .box:first-of-type .bg-img::before {
+  background-color: var(--red);
+}
+.features .container .box:nth-of-type(2) .bg-img::before {
+  background-color: var(--green);
+}
+.features .container .box:last-of-type .bg-img::before {
+  background-color: var(--main-clr);
+}
+
+.features .container .box .bg-img img{
+  max-width: 100%;
+}
+
+.features .container .box .bg-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 101%;
+  height: 50%;
+  z-index: 1;
+  background-color: white;
+  transform: translateX(-50%);
+  clip-path: polygon(100% 100%, 100% 0, 0 100%);
+  transition: clip-path var(--transition-time);
+}
+
+.features .container .box:hover .bg-img::after {
+  clip-path: polygon(100% 100%, 0 30%, 0 100%);
+}
+
+.features .container .box .content {
+  text-align: center;
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.features .container .box .content h3 {
+  width: fit-content;
+  font-size: 2.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.features .container .box .content h3::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 5px;
+  width: 80%;
+  background-color: black;
+}
+
+.features .container .box:first-of-type h3::after  {
+  background-color: var(--red);
+}
+.features .container .box:nth-of-type(2) h3::after  {
+  background-color: var(--green);
+}
+.features .container .box:last-of-type h3::after  {
+  background-color: var(--main-clr);
+}
+
+.features .container .box .content p {
+  color: var(--gray-300);
+  font-size: 1.2rem;
+  line-height: 2;
+}
+
+.features .container .box .content button {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: .6rem 1.8rem;
+  border: 3px solid;
+  border-radius: 10px;
+  text-transform: capitalize;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+  transition: color .3s;
+}
+
+.features .container .box:first-of-type .content button  {
+  border-color: var(--red);
+  color: var(--red);
+}
+.features .container .box:nth-of-type(2) .content button  {
+  border-color: var(--green);
+  color: var(--green);
+}
+.features .container .box:last-of-type .content button {
+  border-color: var(--main-clr);
+  color: var(--main-clr);
+}
+
+.features .container .box .content button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: left var(--transition-time);
+  z-index: -1;
+}
+
+.features .container .box:first-of-type .content button::before {
+  background-color: var(--red);
+}
+.features .container .box:nth-of-type(2) .content button::before {
+  background-color: var(--green);
+}
+.features .container .box:last-of-type .content button::before {
+  background-color: var(--main-clr);
+}
+
+.features .container .box:hover .content button {
+  color: white;
+}
+
+.features .container .box:hover .content button::before {
+  left: 0
+}
+/* ! End Features */
