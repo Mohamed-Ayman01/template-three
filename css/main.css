@@ -603,3 +603,66 @@ main img {
   left: 0
 }
 /* ! End Features */
+
+/* ! Start Testimonials */
+.testimonials {
+  background-color: var(--gray-200);
+}
+
+.testimonials .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--grid-box-gap);
+}
+
+.testimonials .container .box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.2rem 1rem;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+}
+
+.testimonials .container .box .avatar {
+  width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(10%, -50%);
+  overflow: hidden;
+  border-radius: 50%;
+  border: 10px solid var(--gray-200);
+}
+
+.testimonials .container .box .avatar img {
+  max-width: 100%;
+}
+
+.testimonials .container .box h3 {
+
+}
+
+.testimonials .container .box span {
+  color: var(--gray-300);
+}
+
+.testimonials .container .box .rating {
+  
+}
+
+.testimonials .container .box .rating i:not(:last-of-type) {
+  margin-right: .25rem;
+}
+
+.testimonials .container .box .rating i.filled {
+  color: rgb(255, 196, 0);
+
+}
+
+.testimonials .container .box .desc {
+  color: var(--gray-300);
+}
+
+/* ! End Testimonials */
