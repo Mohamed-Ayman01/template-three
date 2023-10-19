@@ -766,3 +766,101 @@ main img {
   width: max-content;
 }
 /* ! End Team Members */
+
+/* ! Start Services */
+.services {
+  background-color: var(--gray-200);
+}
+
+.services .container {
+  display: grid;
+  gap: var(--grid-box-gap);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.services .container .box {
+  background-color: white;
+  box-shadow: 0 10px 20px 3px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-time);
+  position: relative;
+}
+
+.services .container .box::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  height: 3px;
+  width: 0;
+  transform: translateX(-50%);
+  background-color: var(--main-clr);
+  transition: width var(--transition-time);
+}
+
+.services .container .box:hover::before {
+  width: 100%;
+}
+
+.services .container .box:hover {
+  transform: translateY(-10px)
+}
+
+.services .container .box .service-title {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.services .container .box .service-title i {
+  color: #d0d0d0;
+  font-size: 4rem;
+}
+
+.services .container .box .service-title h3 {
+  margin-top: 1rem;
+  color: var(--main-clr);
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+.services .container .box .details {
+  height: 50px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  background-color: var(--gray-100);
+  overflow: hidden;
+}
+
+.services .container .box .details > * {
+  display: flex;
+  align-items: center;
+}
+
+.services .container .box .details p.number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  padding: 0 2.5rem 0 1.3rem;
+  background-color: var(--main-clr);
+  position: relative;
+}
+
+.services .container .box .details p.number::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 70%;
+  width: 75%;
+  height: 100%;
+  background-color: #d0d0d0;
+  clip-path: polygon(30% 0, 0 100%, 65% 100%, 100% 0);
+}
+
+.services .container .box .details a {
+  margin-right: 1rem;
+  text-transform: capitalize;
+  color: var(--main-clr);
+}
+/* ! End Services */
