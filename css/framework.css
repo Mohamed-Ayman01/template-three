@@ -45,7 +45,7 @@
   transition-delay: .8s; */
   z-index: 3;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .sect-heading::before {
@@ -58,7 +58,7 @@
   background: var(--main-clr);
   border-radius: 50%;
   transform: translateY(-50%);
-  transition: .8s;
+  transition: .8s ease-in;
   z-index: -1;
 }
 
@@ -72,11 +72,10 @@
   background: var(--main-clr);
   border-radius: 50%;
   transform: translateY(-50%);
-  transition: .8s;
+  transition: .8s ease-in;
   z-index: -1;
 }
 
-/* ! USE ANIMATION INSTEAD OF TRANSITION */
 .sect-heading:hover {
   transition: .2s ;
   transition-delay: .8s;

@@ -640,16 +640,8 @@ main img {
   max-width: 100%;
 }
 
-.testimonials .container .box h3 {
-
-}
-
 .testimonials .container .box span {
   color: var(--gray-300);
-}
-
-.testimonials .container .box .rating {
-  
 }
 
 .testimonials .container .box .rating i:not(:last-of-type) {
@@ -658,7 +650,6 @@ main img {
 
 .testimonials .container .box .rating i.filled {
   color: rgb(255, 196, 0);
-
 }
 
 .testimonials .container .box .desc {
@@ -666,3 +657,112 @@ main img {
 }
 
 /* ! End Testimonials */
+
+/* ! Start Team Members */
+.team-members .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--grid-box-gap) 2rem;
+}
+
+.team-members .container .box {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem 0;
+}
+
+.team-members .container .box::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 80%;
+  right: 0;
+  top: 0;
+  background-color: var(--gray-200);
+  border-radius: 14px;
+}
+
+.team-members .container .box::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 0;
+  right: 0;
+  top: 0;
+  background-color: #dadada;
+  border-radius: 14px;
+  transition: width var(--transition-time);
+}
+
+.team-members .container .box:hover::after {
+  width: 80%;
+}
+
+.team-members .container .box .img-and-socials {
+  width: 100%;
+  display: flex;
+}
+
+.team-members .container .box .img-box {
+  width: 85%;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.team-members .container .box .img-box img {
+  width: 100%;
+  transition: filter var(--transition-time);
+}
+.team-members .container .box:hover .img-box img {
+  filter: saturate(0%);
+}
+
+.team-members .container .box .socials {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: var(--gray-300);
+  z-index: 1;
+}
+
+.team-members .container .box .socials a {
+  width: 100%;
+  text-align: center;
+  transition: color var(--transition-time);
+}
+
+.team-members .container .box .socials a:hover {
+  color: var(--main-clr);
+}
+
+.team-members .container .box .text-box {
+  width: 100%;
+  padding-left: calc(20% + 1rem);
+  z-index: 1;
+  text-transform: capitalize;
+}
+
+.team-members .container .box .text-box h3 {
+  color: var(--main-clr);
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+  transition: color var(--transition-time);
+}
+
+.team-members .container .box:hover .text-box h3 {
+  color: var(--gray-300);
+}
+
+.team-members .container .box .text-box p {
+  width: max-content;
+}
+/* ! End Team Members */
