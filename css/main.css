@@ -252,7 +252,6 @@ main .text p {
 main img {
   width: 600px;
   animation: header-img-anim 2s ease-in-out 0s infinite alternate;
-  filter: drop-shadow(10px 10px 10px rgb(124, 124, 124));
 }
 
 @keyframes header-img-anim {
@@ -919,7 +918,105 @@ main img {
 
 .our-skills .skill .progress-bar div {
   height: 100%;
-  width: attr(data-progress);
+  width: 0%;
   background-color: var(--main-clr);
+  transition: width 1s;
 }
 /* ! End Our Skills */
+
+/* ! Start How It Works */
+.how-it-works {
+  background-color: var(--gray-200)
+}
+
+.how-it-works .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.how-it-works .container > * {
+  flex: 1 1 50%;
+}
+
+@media (max-width: 991px) {
+  .how-it-works .container{
+    flex-direction: column;
+  }
+}
+
+.how-it-works .container .img-cont {
+
+}
+
+.how-it-works .container .img-cont img {
+  max-width: 100%;
+}
+
+.how-it-works .container .cards-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem 0;
+}
+
+.how-it-works .container .cards-box .card {
+  position: relative;
+  border: 2px solid white;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: #f6f5f5;
+}
+
+.how-it-works .container .cards-box .card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0, 0);
+  width: 100%;
+  height: 100%;
+  background-color: var(--gray-200);
+  transition: transform var(--transition-time);
+}
+
+.how-it-works .container .cards-box .card:hover::before {
+  transform: translate(-50%, -50%) scale(1, 1);
+} 
+
+.how-it-works .container .card > * {
+  z-index: 1;
+}
+
+.how-it-works .container .card .img-box {
+  flex: 1 0 70px;
+}
+
+@media (max-width: 767px) {
+  .how-it-works .container .cards-box .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .how-it-works .container .card .img-box  {
+    width: 70px;
+  }
+}
+
+.how-it-works .container .card .img-box img {
+  max-width: 100%;
+}
+
+.how-it-works .container .card .text h3 {
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
+}
+
+.how-it-works .container .card .text p {
+  line-height: 1.6;
+  font-size: 1.15rem;
+  color: var(--gray-300);
+}
+/* ! End How It Works */
