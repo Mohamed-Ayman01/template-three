@@ -117,3 +117,20 @@
     linear-gradient(225deg, white 25%, transparent 25%);
   background-size: 30px 30px;
 }
+
+.dots {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  max-width: 300px;
+  max-height: 300px;
+  z-index: -1;
+}
+
+.dots span {
+  width: 6px;
+  height: 6px;
+  background-color: var(--main-clr);
+  border-radius: 50%;
+}
