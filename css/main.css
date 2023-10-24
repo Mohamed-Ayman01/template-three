@@ -951,10 +951,6 @@ main img {
   }
 }
 
-.how-it-works .container .img-cont {
-
-}
-
 .how-it-works .container .img-cont img {
   max-width: 100%;
 }
@@ -1034,16 +1030,12 @@ main img {
 
 .events .one{
   left: -50px;
-  bottom: 10%;
+  bottom: 200px;
 }
 
 .events .two{
   right: -50px;
-  top: 30%;
-}
-
-.events .container {
-  
+  top: 200px;
 }
 
 .events .row {
@@ -1116,10 +1108,6 @@ main img {
   border-color: var(--main-clr)
 }
 
-.events .row .info-box .text {
-
-}
-
 .events .row .info-box .text h3 {
   font-size: 2rem;
   text-transform: capitalize;
@@ -1168,6 +1156,7 @@ main img {
 @media (max-width: 767px) {
   .events .sign-up {
     padding: 1rem;
+    gap: 1rem;
     flex-direction: column;
     width: 100%;
     border-radius: 0;
@@ -1179,8 +1168,164 @@ main img {
   }
 }
 
-
 .events .sign-up button:hover {
   background-color: var(--main-clr-dark);
 }
 /* ! End Events */
+
+/* ! start pricing plans */
+.pricing-plans {
+  overflow: hidden;
+  position: relative;
+  background-color: var(--gray-200);
+}
+
+.pricing-plans .one{
+  left: -50px;
+  bottom: 200px;
+  z-index: 1;
+}
+
+.pricing-plans .two{
+  z-index: 1;
+  right: -50px;
+  top: 200px;
+}
+
+.pricing-plans .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-plans .container .plan {
+  padding: 2rem 0;
+  background-color: white;
+  box-shadow: var(--card-box-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-plans .container .plan > * {
+  position: relative;
+  z-index: 2 ;
+}
+
+.pricing-plans .container .plan::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 50%;
+  width: 100%;
+  background-color: #f2f2f2;
+  transition: left var(--transition-time);
+  /* z-index: 0; */
+}
+
+.pricing-plans .container .plan:hover::before {
+  left: 0%;
+}
+
+.pricing-plans .container .plan::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -100%;
+  height: 50%;
+  width: 100%;
+  background-color: #f2f2f2;
+  transition: right var(--transition-time);
+}
+
+.pricing-plans .container .plan:hover::after {
+  right: 0%;
+}
+
+@media (min-width: 1200px) {
+  .pricing-plans .container .plan.advanced {
+    transform: translateY(-25px);
+  }
+}
+
+.pricing-plans .container .plan.advanced .badge {
+  padding: .5rem;
+  padding-right: 2rem;
+  position: absolute;
+  text-transform: capitalize;
+  top: 57px;
+  right: -35px;
+  color: white;
+  transform: rotateZ(90deg);
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: var(--main-clr);
+  clip-path: polygon(0 0, 100% 0, 88% 50% , 100% 100%, 0 100%);
+}
+
+.pricing-plans .container .plan .info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-plans .container .plan .info .title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: -1px;
+}
+
+
+.pricing-plans .container .plan .info img {
+  width: 90px;
+  margin: 2rem auto;
+}
+
+.pricing-plans .container .plan .info .price {
+  font-size: 4rem;
+  color: var(--main-clr);
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.pricing-plans .container .plan .info span {
+  color: var(--gray-300);
+  text-transform: capitalize;
+}
+
+.pricing-plans .container .plan .features {
+  margin-bottom: 1rem;
+}
+
+.pricing-plans .container .plan .features .feat {
+  display: flex;
+  align-items: center;
+  padding: 1.4rem;
+  gap: .5rem;
+  border-top: 1px solid #eaeaea
+}
+
+.pricing-plans .container .plan .features .feat i {
+  color: var(--main-clr);
+}
+
+.pricing-plans .container .plan > button {
+  display: block;
+  margin: 0 auto;
+  color: var(--main-clr);
+  padding: 1rem 1.25rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+  border: 2px solid var(--main-clr);
+  transition: all var(--transition-time);
+  transition-property: color, background-color;
+}
+
+.pricing-plans .container .plan > button:hover {
+  color: white;
+  background-color: var(--main-clr);
+}
+/* ! end pricing plans */
