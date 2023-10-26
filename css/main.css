@@ -1356,18 +1356,6 @@ main img {
   justify-content: space-between;
 }
 
-.top-videos .holder .videos .top-vids p {
-
-}
-
-.top-videos .holder .videos .top-vids i {
-  
-}
-
-.top-videos .holder .videos .toggle-buttons {
-
-}
-
 .top-videos .holder .videos .toggle-buttons div {
   padding: 1.3rem 1.25rem;
   display: flex;
@@ -1418,3 +1406,106 @@ main img {
 }
 
 /* ! end top videos */
+
+/* ! start stats */
+.stats {
+  position: relative;
+  overflow: hidden;
+}
+
+.stats > *:not(.bg) {
+  z-index: 2;
+  position: relative;
+}
+
+.stats .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stats .bg img {
+  width: 100%;
+  height: 100%;
+}
+
+.stats .bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 255 255 / 93%);
+}
+
+.stats .container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.stats .container .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: white;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.stats .container .box::before, 
+.stats .container .box::after {
+  transition: top .7s ease-in-out;
+  width: 2px;
+} 
+
+.stats .container .box::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  height: 100%;
+  background-color: var(--main-clr);
+}
+
+.stats .container .box:hover::before {
+  top: 0;
+}
+
+.stats .container .box::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  right: 0px;
+  height: 100%;
+  background-color: var(--main-clr);
+}
+
+.stats .container .box:hover::after {
+  top: 0px;
+}
+
+.stats .container .box i {
+  font-size: 2.3rem;
+  color: #2b2b2b;
+}
+
+.stats .container .box .count {
+  color: #2b2b2b;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.stats .container .box span {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-style: italic;
+  color: var(--main-clr);
+}
+/* ! end stats */
