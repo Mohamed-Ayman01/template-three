@@ -1509,3 +1509,134 @@ main img {
   color: var(--main-clr);
 }
 /* ! end stats */
+
+/* ! start request a discount */
+.request-a-discount {
+  display: flex;
+  min-height: 100vh;
+}
+
+.request-a-discount > * {
+  flex-basis: 50%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (max-width: 991px) {
+  .request-a-discount {
+    flex-direction: column;
+  }
+
+  .request-a-discount > * {
+    flex-basis: 100%;
+    padding: 2rem 1rem;
+  }
+}
+
+.request-a-discount .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  color: white;
+  gap: 2rem;
+}
+
+.request-a-discount .info .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("../images/discount-background1.jpg");
+  animation: bg-change 3s 0s infinite alternate;
+}
+
+@keyframes bg-change {
+  0% {
+    background-image: url("../images/discount-background1.jpg");
+  }
+  
+  100% {
+    background-image: url("../images/discount-background2.jpg");
+  }
+  
+}
+
+.request-a-discount .info .bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #2195f3f7;
+}
+
+.request-a-discount .info h2 {
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+}
+
+.request-a-discount .info p {
+  max-width: 50ch;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.request-a-discount .info img {
+  width: 300px;
+}
+
+.request-a-discount .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.request-a-discount .form-container form h2 {
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+  margin-bottom: 2rem;
+}
+
+.request-a-discount .form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.request-a-discount .form-container input,
+.request-a-discount .form-container textarea {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-bottom: 1px solid #b7b7b7;
+  background-color: #f9f9f9;
+  caret-color: var(--main-clr);
+  outline: none;
+}
+
+.request-a-discount .form-container input::placeholder,
+.request-a-discount .form-container textarea::placeholder {
+  text-transform: capitalize;
+}
+
+.request-a-discount .form-container textarea {
+  min-height: 200px;
+}
+
+.request-a-discount .form-container button {
+  color: white;
+  background-color: var(--main-clr);
+  padding: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+/* ! end request a discount */
