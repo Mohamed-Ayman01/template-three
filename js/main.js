@@ -1,3 +1,5 @@
+// ! 
+
 // ! change skills bars width
 let skillBars = document.querySelectorAll(
   ".our-skills .skill .progress-bar div",

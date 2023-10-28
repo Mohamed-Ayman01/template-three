@@ -135,11 +135,12 @@ nav .links .mega-menu-li {
 
 nav .links .mega-menu-li:hover ~ .mega-menu,
 .mega-menu:hover {
-  display: grid;
+  transform: translateY(0px);
+  z-index: 10;
 }
 
 nav .mega-menu {
-  display: none;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 2rem 1.5rem;
@@ -151,7 +152,9 @@ nav .mega-menu {
   background-color: white;
   border-top: 1px solid var(--gray-200);
   border-bottom: 3px solid var(--main-clr); 
-  z-index: 10;
+  z-index: -10;
+  transform: translateY(40px);
+  transition: .5s;
 }
 
 nav .mega-menu img {
