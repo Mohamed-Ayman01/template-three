@@ -137,6 +137,7 @@ nav .links .mega-menu-li:hover ~ .mega-menu,
 .mega-menu:hover {
   transform: translateY(0px);
   z-index: 10;
+  opacity: 1;
 }
 
 nav .mega-menu {
@@ -155,6 +156,7 @@ nav .mega-menu {
   z-index: -10;
   transform: translateY(40px);
   transition: .5s;
+  opacity: 0;
 }
 
 nav .mega-menu img {
@@ -1320,6 +1322,7 @@ main img {
   color: var(--main-clr);
   padding: 1rem 1.25rem;
   border-radius: 5px;
+  background-color: transparent;
   font-weight: bold;
   text-transform: capitalize;
   border: 2px solid var(--main-clr);
